@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 
-import { QuickAddModal } from './QuickAddModal';
 import { AddressSearchModal, ButtonSquare, Icon, Input, Notice } from '../../components';
 import { AddFormContext, ParticipantContext, SnackbarContext } from '../../contexts';
-import { useModal, useParticipantNameInput, useAddressInput } from '../../hooks';
-import { AddForm, QuickAddButton, InputWithButtonWrapper } from './style';
+import { useParticipantNameInput, useAddressInput } from '../../hooks';
+import { AddForm, InputWithButtonWrapper } from './style';
 import { getId, getAvatarId, isViewWiderThan } from '../../utils';
 import { ID, LAYOUT } from '../../constants';
 
@@ -13,7 +12,6 @@ export const ParticipantAddForm = () => {
   const { addParticipant, isFullParticipants } = useContext(ParticipantContext);
   const { INPUT, MESSAGE, formRef, resetForm, isComplete, noticeMessage, setNoticeMessage } =
     useContext(AddFormContext);
-  const { isModalOpen, openModal, closeModal } = useModal();
 
   const { name, handleChangeName, handleBlurName, dragAndSelectName, setRandomName } = useParticipantNameInput();
   const { address, handleClickAddress, handleKeyPressAddress, focusAddress } = useAddressInput();
@@ -56,11 +54,6 @@ export const ParticipantAddForm = () => {
 
   return (
     <AddForm ref={formRef} onSubmit={handleSubmit}>
-      <QuickAddButton type="button" size="xs" Icon={<Icon.People width="18" color="#fff" />} onClick={openModal}>
-        간편 추가
-      </QuickAddButton>
-      <QuickAddModal isModalOpen={isModalOpen} closeModal={closeModal} />
-
       <AddressSearchModal />
       <Input
         name={INPUT.ADDRESS.KEY}

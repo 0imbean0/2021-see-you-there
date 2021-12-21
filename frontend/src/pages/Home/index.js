@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { ParticipantAddForm } from './ParticipantAddForm';
-import { NoticeModal } from './NoticeModal';
 import {
   MapViewArea,
   MapView,
@@ -117,8 +116,6 @@ const HomePage = () => {
           </BottomSection>
         </ContentArea>
       </main>
-
-      <NoticeModal />
     </>
   );
 };

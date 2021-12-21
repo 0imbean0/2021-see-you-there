@@ -36,7 +36,7 @@ export const Nav = styled.nav`
 
   & > div {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -60,10 +60,6 @@ export const Nav = styled.nav`
   }
 `;
 
-export const Button = styled.button`
-  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
-`;
-
 export const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -73,76 +69,4 @@ export const Title = styled.div`
   & > img {
     width: 8.25rem;
   }
-`;
-
-export const ProfileImage = styled.img`
-  margin-right: 0.375rem;
-  width: ${LAYOUT.NAV_ICON_SIZE};
-  height: ${LAYOUT.NAV_ICON_SIZE};
-
-  border-radius: 50%;
-  border-style: outset;
-  border: 2px solid ${COLOR.BORDER};
-`;
-
-export const MenuList = styled.ul`
-  ${({ isVisible }) => (isVisible ? EFFECT.FADE_IN : EFFECT.HIDE)}
-
-  position: fixed;
-  top: calc(${LAYOUT.NAV_HEIGHT} + 0.5rem);
-  right: 0.5rem;
-  padding: 1rem 0;
-  min-width: 10rem;
-
-  border-radius: 0.25rem;
-  background-color: #fff;
-  box-shadow: 0 0.25rem 0.5rem rgb(20 20 84 / 4%), 0 0.5rem 1.125rem rgb(20 20 84 / 8%),
-    0 1rem 2rem -0.125rem rgb(20 20 84 / 8%), 0 0 0 0.0625rem rgb(20 20 84 / 12%);
-  z-index: ${Z_INDEX.HAMBURGER_MENU};
-`;
-
-export const MenuItem = styled.li`
-  padding: 0.25rem 1rem;
-  min-width: 9rem;
-  line-height: 1.7;
-  color: ${COLOR.PARAGRAPH};
-
-  &:first-child > strong {
-    color: ${COLOR.PRIMARY_LIGHT};
-  }
-
-  &:not(:first-child):hover * {
-    color: ${COLOR.PARAGRAPH_LIGHT};
-
-    & path {
-      fill: ${COLOR.PARAGRAPH_LIGHT};
-    }
-  }
-
-  & a {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    & svg {
-      margin-left: 0.25rem;
-    }
-
-    &::after {
-      display: ${(props) => (props.hasNotice ? 'block' : 'none')};
-      content: '';
-      position: absolute;
-      top: -0.3rem;
-      right: -0.4rem;
-      width: 5px;
-      height: 5px;
-      background-color: ${COLOR.ACCENT};
-      border-radius: 50%;
-    }
-  }
-`;
-
-export const Divider = styled.hr`
-  border-top: 1px solid #eee;
-  margin: 0.5rem 0;
 `;

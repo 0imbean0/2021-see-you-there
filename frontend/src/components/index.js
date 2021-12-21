@@ -16,10 +16,8 @@ export { Source } from './atoms/Source';
 export { Spinner } from './atoms/Spinner';
 
 export { AddressSearchModal } from './molecules/AddressSearchModal';
-export { AuthRoute } from './molecules/AuthRoute';
 export { NavBar } from './molecules/NavBar';
 export { MidpointLoader } from './molecules/MidpointLoader';
 export { Confirm } from './molecules/Confirm';
 export { ParticipantList } from './molecules/ParticipantList';
 export { Picture } from './molecules/Picture';
-export { RouteWithVisitLogging } from './molecules/RouteWithVisitLogging';

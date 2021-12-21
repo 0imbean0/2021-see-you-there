@@ -18,7 +18,7 @@ import {
   Footer,
 } from './style';
 import { ParticipantContext, MapViewContext } from '../../contexts';
-import { useMapViewApi, useMidpoint, useShareLink } from '../../hooks';
+import { useMapViewApi, useMidpoint } from '../../hooks';
 import { getNextIndex } from '../../utils';
 import { ROUTE, COLOR, TIPS, QUERY_KEY } from '../../constants';
 
@@ -32,7 +32,6 @@ const MidpointPage = () => {
     useContext(MapViewContext);
   const { showMapView, addMapViewLoadingEventListener } = useMapViewApi({ mapObj, mapViewRef });
   const { showDefaultBounds, showDefaultMarkers, showCategoryMarkers, hideCategoryMarkers, isSelected } = useMidpoint();
-  const { share } = useShareLink();
 
   const tipMessageRef = useRef(null);
   const [participant, setParticipant] = useState(participants?.[0]);
@@ -104,15 +103,6 @@ const MidpointPage = () => {
 
           <Content>
             <CoreSection>
-              <ButtonRound
-                id="kakao-link-btn"
-                type="submit"
-                size="xs"
-                Icon={<Icon.Share width="18" color="#fff" />}
-                onClick={() => share(station?.placeName)}
-              >
-                공유하기
-              </ButtonRound>
               <h2>
                 <span>{station?.placeName}</span> 에서 만나요!
               </h2>
